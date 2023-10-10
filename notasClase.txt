@@ -1,0 +1,16 @@
+footer no poner aun, puede condicionarnos para
+la generacion de codigo
+
+cuando uso el aside no pensar que es por la posicion
+solo que es omitible y tal
+
+
+
+section todo esta relacionado
+-----O--------------------------
+article todo esta relacionado pero autocontenido
+    (tiene sentido por si mismo)
+
+
+
+todo lo que este debajo de un h va relacionado,
