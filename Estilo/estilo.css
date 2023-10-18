@@ -2,26 +2,106 @@
 
 /**
 COLORES
-
     BABY BLUE: #BFD7ED 
-    BLUE GROTTO: #60A3D9
+    BLUE GROTTO: #4c7ea7
     ROYAL BLUE: #0074B7
-    NAVY BLUE: #003B73
+    NAVY BLUE: #002b53
  **/
 
- /*Especificidad = 001*/
+/*Especificidad = 001*/
 body {
     font-family:  'Segoe UI', Tahoma,  Verdana, sans-serif;
     background-color: #BFD7ED ;
-    color: #002b53;
+    color: #002b53; 
 }
 
-
-
-
- /*Especificidad = 001*/
-h1,h2 {
+/*Especificidad = 001*/
+h1 {
     font-size: 2em;
 }
 
+/*Especificidad = 001*/
+h2 {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+/*Especificidad = 001*/
+h3{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+
+/*Especificidad = 001*/
+ol {
+    list-style-type: upper-roman;
+}
+
+/*Especificidad = 002*/
+ul ol{
+    list-style-type: decimal-leading-zero;
+}
+
+/*Especificidad = 001*/
+dt {
+    font-weight: 500;
+}
+
+/*Especificidad = 001*/
+ul{
+    list-style-type: square;
+}
+
+
+/*Especificidad = 001*/
+caption{
+    font-style: italic;
+    font-weight: lighter;
+}
+
+/*Especificidad = 001*/
+a{
+    /*redefine el color predeterminado del agente de usuario*/
+    /* Warning de background-color no especificado, hereda de body*/
+    color:  #002b53;
     
+}
+
+
+/*Especificidad = 011*/
+a:hover{
+    font-weight: bold;
+}
+
+/*Especificidad = 012*/
+/*Selecciona el elemento 2 hermanos que le preceden en el document tree*/
+ul li:nth-child(3){
+    font-weight: bolder;
+}
+
+
+/*Especificidad = 001*/
+table{
+    /* Warning de color por no tener un color especificado,
+    este hereda de body y cumple con legibilidad */
+    border: 3px solid #002b53;
+    width: 50%;
+    background-color: #0074b772 ;
+}
+
+
+/*Especificidad = 002*/
+table td{
+    text-align: center;
+}
+
+video{
+    max-width: 100%;
+    height: auto;
+}
+
+img{
+    height: auto;
+    max-width: 100%;
+}
