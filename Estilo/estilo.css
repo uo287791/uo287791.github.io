@@ -1,1 +1,27 @@
  /*Daniel Andina Pailos UO287792*/
+
+/**
+COLORES
+
+    BABY BLUE: #BFD7ED 
+    BLUE GROTTO: #60A3D9
+    ROYAL BLUE: #0074B7
+    NAVY BLUE: #003B73
+ **/
+
+ /*Especificidad = 001*/
+body {
+    font-family:  'Segoe UI', Tahoma,  Verdana, sans-serif;
+    background-color: #BFD7ED ;
+    color: #002b53;
+}
+
+
+
+
+ /*Especificidad = 001*/
+h1,h2 {
+    font-size: 2em;
+}
+
+    
