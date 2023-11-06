@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rutas xmlns="http://www.uniovi.es"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uniovi.es rutas.xsd">
+
+    <ruta nombre="Ruta turistica caracas" rating="10" tipo-ruta="Turistica" tiempo-ruta="PT7H">
+
+        <medio-transporte>
+            Autobus
+        </medio-transporte>
+        
+        <fecha-inicio>
+            2023-02-02
+        </fecha-inicio>
+
+        <hora-inicio>
+            13:00:00
+        </hora-inicio>
+
+        <agencia>
+            Agencias Caracas
+        </agencia>
+
+        <descripcion>
+            Muy bonita
+        </descripcion>
+
+        <accesibilidad>
+            Para todo el mundo
+        </accesibilidad>
+
+        <lugar-inicio>
+            Plaza altamira
+        </lugar-inicio>
+
+        <direccion-inicio>
+            Plaza altamira
+        </direccion-inicio>
+
+        <coordenadas-inicio>
+            <latitud>10.4964</latitud>
+            <longitud>-66.849</longitud>
+            <altitud> 1303</altitud>
+        </coordenadas-inicio>
+
+        <referencia>
+            www.google.es
+        </referencia>      
+        <referencia>
+            www.venezuela.es
+        </referencia>        
+        <referencia>
+            www.rutas.es
+        </referencia>
+
+        <hito nombre="PlazaAltamira">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+
+            <coordenadas-hito>
+                <longitud>-66.849</longitud>
+                <latitud>10.4964</latitud>
+
+                <altitud> 2000</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo unidades="km">
+               <distancia>
+                    34 
+               </distancia>
+            </distancia-previo>
+
+            <foto-hito>
+                Altamira.jpg
+            </foto-hito>
+        </hito>
+
+        <hito nombre="ParqueNacionalElAvila">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.866666666667</longitud>
+               <latitud>10.533333333333</latitud>
+
+               <altitud> 1203</altitud>
+            </coordenadas-hito>
+
+            <distancia-previo unidades="km" >
+               <distancia>
+                    34 
+               </distancia> 
+            </distancia-previo>
+            <foto-hito>
+                avila.jpeg
+            </foto-hito>
+        </hito>
+
+        <hito nombre="CasaNatalSimonBolivar">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.916944444444</longitud>
+               <latitud>10.495277777778</latitud>
+
+               <altitud> 1123</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+               <distancia>
+                34
+               </distancia>  
+            </distancia-previo>
+
+            <foto-hito>
+                casa.jpeg
+            </foto-hito>
+       
+       
+        </hito>
+
+        <hito nombre="IglesiaSanConstantino">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+             
+            <coordenadas-hito>
+               <longitud>-66.82132503068419</longitud>
+               <latitud>10.418461107811947</latitud>
+
+                <altitud> 2192</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+              <distancia>34</distancia>  
+            </distancia-previo>
+
+            <foto-hito>
+                Mifoto.jpg
+            </foto-hito>
+        </hito>
+
+
+
+
+    </ruta>
+
+    <ruta nombre="Ruta historica caracas" rating="10" tipo-ruta="Historica"  tiempo-ruta="PT7H">
+
+    <medio-transporte>
+        Autobus
+    </medio-transporte>
+    
+    <fecha-inicio>
+        2023-02-02
+    </fecha-inicio>
+
+    <hora-inicio>
+        13:00:00
+    </hora-inicio>
+
+    <agencia>
+        Agencias Caracas
+    </agencia>
+
+    <descripcion>
+        Muy bonita
+    </descripcion>
+
+    <accesibilidad>
+        Para todo el mundo
+    </accesibilidad>
+
+    <lugar-inicio>
+       Quinta de anauco
+    </lugar-inicio>
+
+    <direccion-inicio>
+        Quinta de Anauco,10
+    </direccion-inicio>
+
+    <coordenadas-inicio>
+        <latitud>10.511762296954425</latitud>
+        <longitud>-66.89932696217912</longitud>
+        <altitud> 1533</altitud>
+    </coordenadas-inicio>
+
+    <referencia>
+        www.google.es
+    </referencia>      
+    <referencia>
+        www.venezuela.es
+    </referencia>        
+    <referencia>
+        www.rutas.es
+    </referencia>
+
+        <hito nombre="QuintaAnauco">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.89932696217912</longitud>
+               <latitud>10.511762296954425</latitud>
+
+               <altitud> 2342</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+                <distancia>
+                 34
+                </distancia>  
+             </distancia-previo>
+
+            <foto-hito>
+                anauco.jpg
+            </foto-hito>
+        </hito>
+
+        <hito nombre="Panteon">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.91224425161853</longitud>
+               <latitud>10.511858644985727</latitud>
+
+               <altitud> 1247</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+                <distancia>
+                    34
+                </distancia>  
+             </distancia-previo>
+
+            <foto-hito>
+                panteon.jpg
+            </foto-hito>
+        </hito>
+
+
+        <hito nombre="IglesiaChiquinquirá">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.89932696217912</longitud>
+               <latitud>10.501846024680487</latitud>
+
+               <altitud> 1782</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+                <distancia>
+                 34
+                </distancia>  
+             </distancia-previo>
+
+            <foto-hito>
+                iglesia.jpg
+            </foto-hito>
+        </hito>
+
+
+
+    </ruta>
+
+    <ruta nombre="Ruta naturaleza" rating="10" tipo-ruta="Naturaleza"  tiempo-ruta="PT7H">
+
+       
+    <medio-transporte>
+        Autobus
+    </medio-transporte>
+    
+    <fecha-inicio>
+        2023-02-02
+    </fecha-inicio>
+
+    <hora-inicio>
+        13:00:00
+    </hora-inicio>
+
+    <agencia>
+        Agencias Caracas
+    </agencia>
+
+    <descripcion>
+        Muy bonita
+    </descripcion>
+
+    <accesibilidad>
+        Para todo el mundo
+    </accesibilidad>
+
+    <lugar-inicio>
+        Parque Del Este     
+    </lugar-inicio>
+
+    <direccion-inicio>
+        Parque Del Este, 10
+    </direccion-inicio>
+
+    <coordenadas-inicio>
+        <latitud>10.511762296954425</latitud>
+        <longitud>-66.89932696217912</longitud>
+        <altitud> 1533</altitud>
+    </coordenadas-inicio>
+
+    <referencia>
+        www.google.es
+    </referencia>      
+    <referencia>
+        www.venezuela.es
+    </referencia>        
+    <referencia>
+        www.rutas.es
+    </referencia>
+
+        <hito nombre="ParqueEste">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.8391922</longitud>
+               <latitud>10.4923297</latitud>
+
+                <altitud> 1233</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+                <distancia>
+                 34
+                </distancia>  
+             </distancia-previo>
+
+            <foto-hito>
+                este.jpg
+            </foto-hito>
+        </hito>
+
+        <hito nombre="ExpanzooRecreacional">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+            
+            <coordenadas-hito>
+               <longitud>-66.7855634232895</longitud>
+               <latitud>10.423658099999997</latitud>
+
+                <altitud> 1253</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+                <distancia>
+                 34
+                </distancia>  
+             </distancia-previo>
+
+            <foto-hito>
+                exopanzoo.jpg
+            </foto-hito>
+        </hito>
+
+
+        <hito nombre="ParqueLosChorros">
+            <descripcion-hito>
+                Muy bonito
+            </descripcion-hito>
+    
+            <coordenadas-hito>
+               <longitud>-66.82489883665387</longitud>
+               <latitud>10.507929093739738</latitud>
+
+               <altitud> 809</altitud>
+
+            </coordenadas-hito>
+
+            <distancia-previo  unidades="km">
+                <distancia>
+                 34
+                </distancia>  
+             </distancia-previo>
+
+            <foto-hito>
+                chorros.jpg
+            </foto-hito>
+        </hito>
+
+
+
+
+    </ruta>
+
+
+
+    
+
+</rutas>
