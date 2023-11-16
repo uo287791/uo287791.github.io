@@ -27,9 +27,12 @@ main {
     transition: transform .5s;
   }
 
-  article[data-state="flip"]{
+  article[data-state="flip"],
+  article[data-state="revealed"]{
     transform: rotateY(180deg);
   }
+
+
   
   article h3 {
     font-size: 1em;
