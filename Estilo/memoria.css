@@ -33,7 +33,7 @@ main {
   }
   
   article h3 {
-    font-size: 1em;
+    font-size: 0.7em;
     margin-bottom: 0.25em;
     backface-visibility: hidden;
   }
