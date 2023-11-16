@@ -15,20 +15,12 @@ main {
   article {
     width: 20%;
     text-align: center;
-    
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: #00a2ff63;  
     height: 5em;
-     /* Ajusta según sea necesario */
     border: 0.3em solid #0074B7;
     border-radius: 0.3em;
-
     transform-style: preserve-3d;
     transition: transform .5s;
-
-
-   
   }
 
   article[data-state="flip"],
@@ -37,8 +29,6 @@ main {
   }
   
   article h3 {
-    position: absolute;
-    
     font-size: 0.7em;
     margin-bottom: 0.25em; 
     backface-visibility: hidden;
@@ -46,8 +36,6 @@ main {
   }
   
   article img {
-    
-    padding-top: 20%;
     max-width: 50%;
     max-height: 50%;
     transform: rotateY(180deg);
