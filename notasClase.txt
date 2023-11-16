@@ -48,3 +48,84 @@ The font-family property specifies a
      generic family name in a font-family list, 
      since there's no guarantee that any given font 
      is available.*/
+
+
+
+     ---------------------------------------
+
+    VALIDAR HTML CON HTMLJS
+     Si copio elemento en la html me copia todo el html al portapapeles
+     voy al validador y lo copio.
+
+     NO SE COPIA EL DOCTYPE
+
+
+
+     DEPURAR JS CON PESTAÑA DESARROLLADOR
+
+      fuentes-> carpetas de codigo -> archivo JS
+      -> click en una linea se pone breakpoint
+      -> cuando recarge y pase por ahi se para
+
+
+EJ2
+      tarjetas, imagenes en los links que lo tendremos
+      en u array de json con 12 elementos a la hora de pintar las 
+      tarjetas recorro el json y porcada uno creo la estructura enel
+      html para cada tarjeta.
+
+      evitar misma posicion, aleatorio el array json
+
+      en el array tendremos cada elemento el elemento y source la imagenes
+
+      tarjeta: <article><h3>loquesea</h3><img></img></article>
+
+      comparar si las imagenes coinciden por url
+
+
+
+
+
+      --------------------------------------------------------
+
+
+      data-state :
+        init
+        flip ( cuando se da la vuelta)
+        reveal (cuando coinciden)
+
+
+
+
+1fr es fraccion 1 columna es una fraccion del body coje lo 90 pixeles los divide entre tres y cada parrafo son 30 px cuando llega a la 3 y no le caben mas lo mete abajo
+
+
+
+
+array de 9x9 donde tengo un numero en el attay lo pongo tb donde tengo un hueco en el array pongo un 0
+
+
+se puede meter en esa casillas
+  un numero solo puede estar una vez en cada fila, columna o frupo de 9 casillas
+
+
+  calcular el inicio de la cuadricula 3x3:
+      1,1 => 1-(1%3) 
+             1-(1%3) 
+
+      1,7 =>
+            7-(7mod3) 
+            1-(1%3)
+
+    mandar un alert si tal, sin mas
+
+
+    al pulsar le pongo clicked y en el pulsar namber el que este clicked es el que tengo q modificar
+
+
+    usuario que escriba los numero
+    en el html tendre js que responda a las pulsaciones del teclado (solo 1-9)
+
+
+    si no hay seleccionada y no hay clicked meto una alerta
+    si la hay llamar introduceNumber()

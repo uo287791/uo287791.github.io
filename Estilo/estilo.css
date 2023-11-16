@@ -74,11 +74,7 @@ a:hover{
     font-weight: bold;
 }
 
-/*Especificidad = 012*/
-/*Selecciona el elemento 2 hermanos que le preceden en el document tree*/
-ul li:nth-child(3){
-    font-weight: bolder;
-}
+
 
 
 /*Especificidad = 001*/

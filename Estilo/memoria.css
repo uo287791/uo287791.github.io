@@ -1,0 +1,53 @@
+h2 {
+    text-align: center;
+    padding-top: 2em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0.25em; /* Ajusta según sea necesario */
+    width:100%; /* Ajusta según sea necesario */
+    
+  }
+  
+  article {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(20% - 0.5em); /* Ajusta según sea necesario */
+    height: 5em;
+    margin: 0.25em; /* Ajusta según sea necesario */
+    padding: 0.5em;
+    border: 0.1em solid #ccc;
+
+    transform-style: preserve-3d;
+    transition: transform .5s;
+  }
+
+  article[data-state="flip"]{
+    transform: rotateY(180deg);
+  }
+  
+  article h3 {
+    font-size: 1em;
+    margin-bottom: 0.25em;
+    backface-visibility: hidden;
+
+
+  }
+  
+  article img {
+    max-width: 50%;
+    max-height: 50%;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+
+
+  }
+  
+
+  
+  

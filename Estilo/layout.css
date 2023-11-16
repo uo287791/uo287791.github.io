@@ -1,26 +1,32 @@
-/* Especificidad 002 */
-header nav{
+/* Especificidad 001 */
+nav {
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     row-gap: 1em;
     /* Gap completo */
-} 
+}
+
+/*Especificidad  (0, 0, 2)*/
+body>nav{
+    padding-top: 3em;
+}
 
 /* PX CUIDADINO */
 /* Gap pequeño para moviles */
-@media only screen and (max-width: 400px){
-    header nav{
-        gap: 1em  0.5em;
+/*Especificidad  (0, 0, 1)*/
+@media only screen and (max-width: 400px) {
+    nav {
+        gap: 1em 0.5em;
     }
 }
 
+/*Especificidad  (0, 0, 1)*/
 /* Un gap un poco mayor para tablets o similar */
-@media only screen and (max-width: 700px){
-    header nav{
-        gap: 1em  2em;
+@media only screen and (max-width: 700px) {
+    nav {
+        gap: 1em 2em;
     }
 }
-
-
