@@ -13,7 +13,6 @@ main {
   }
   
   article {
-    position:relative;
     width: 20%;
     text-align: center;
     
@@ -27,6 +26,9 @@ main {
 
     transform-style: preserve-3d;
     transition: transform .5s;
+
+
+   
   }
 
   article[data-state="flip"],
@@ -35,17 +37,17 @@ main {
   }
   
   article h3 {
-    position: relative;
+    position: absolute;
+    
     font-size: 0.7em;
-    margin-bottom: 0.25em;
+    margin-bottom: 0.25em; 
     backface-visibility: hidden;
     transform: rotateX(0deg);
   }
   
   article img {
-    position: absolute;
-    top: 25%;
-    left: 24% ;
+    
+    padding-top: 20%;
     max-width: 50%;
     max-height: 50%;
     transform: rotateY(180deg);
