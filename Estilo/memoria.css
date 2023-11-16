@@ -13,8 +13,10 @@ main {
   }
   
   article {
+    position:relative;
     width: 20%;
     text-align: center;
+    
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -33,12 +35,17 @@ main {
   }
   
   article h3 {
+    position: relative;
     font-size: 0.7em;
     margin-bottom: 0.25em;
     backface-visibility: hidden;
+    transform: rotateX(0deg);
   }
   
   article img {
+    position: absolute;
+    top: 25%;
+    left: 24% ;
     max-width: 50%;
     max-height: 50%;
     transform: rotateY(180deg);
