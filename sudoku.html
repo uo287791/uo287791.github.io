@@ -1,27 +1,32 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <!-- Datos que describen el documento -->
-        <meta name ="author" content ="Daniel Andina Pailos" />
+        <meta name="author" content="Daniel Andina Pailos" />
 
-        <meta name ="description" content ="aquí cada documento debe tener la
-        descripción del contenido concreto del mismo" />
+        <meta
+            name="description"
+            content="aquí cada documento debe tener la
+        descripción del contenido concreto del mismo"
+        />
 
-        <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
-        <meta name ="keywords" content ="aquí cada documento debe tener la lista
-        de las palabras clave del mismo separadas por comas" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <link rel="stylesheet" type="text/css" href="Estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="Estilo/layout.css" />
+        <link rel="stylesheet" type="text/css" href="Estilo/sudoku.css" />
+
 
         <meta charset="UTF-8" />
-        <link rel="icon" href="Multimedia/Fotos/favicon-1024.png">
+        <link rel="icon" href="Multimedia/Fotos/favicon-1024.png" />
+        <script src="js/sudoku.js"></script>
 
         <title>Escritorio Virtual - Juegos</title>
     </head>
 
     <body>
         <!-- Datos con el contenidos que aparece en el navegador -->
-      
+
         <header>
             <h1>Escritorio Virtual</h1>
             <nav>
@@ -29,19 +34,30 @@
                 <a href="sobremi.html" accesskey="s" tabindex="2">Sobre mí</a>
                 <a href="noticias.html" accesskey="n" tabindex="3">Noticias</a>
                 <a href="agenda.html" accesskey="a" tabindex="4">Agenda</a>
-                <a href="meteorologia.html" accesskey="m" tabindex="5">Meteorología</a>
+                <a href="meteorologia.html" accesskey="m" tabindex="5"
+                    >Meteorología</a
+                >
                 <a href="viajes.html" accesskey="v" tabindex="6">Viajes</a>
                 <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
             </nav>
-            
         </header>
 
-        
         <nav>
-            <a href="memoria.html" accesskey="i" tabindex="8">Juego de memoria</a>
-            <a href="sudoku.html" accesskey="s" tabindex="9">Sudoku</a> 
+            <a href="memoria.html" accesskey="i" tabindex="8">
+                Juego de memoria</a
+            >
+            <a href="sudoku.html" accesskey="s" tabindex="9">Sudoku</a>
         </nav>
-        
-        
+
+        <main>
+            <h2>Sudoku</h2>
+            
+        </main>
+
+      
     </body>
+    <script>
+        sudoku = new Sudoku();
+        sudoku.paintSudoku();
+    </script>
 </html>
