@@ -91,11 +91,13 @@ table{
 table td{
     text-align: center;
 }
+/*Especificidad = 001*/
 
 video{
     max-width: 100%;
     height: auto;
 }
+/*Especificidad = 001*/
 
 img{
     height: auto;

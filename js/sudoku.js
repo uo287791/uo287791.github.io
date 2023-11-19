@@ -30,10 +30,13 @@ class Sudoku {
 
     keyEvent(event) {
         if (this.selectedCell != null) {
+            if(this.selectedCell.getAttribute("data-state") == data_state_values.CORRECT){
+                alert("Esta celda ya está correcta!");
+                return;
+            }
             let currentValue = parseInt(event.key);
 
             if (currentValue >= 1 && event.key <= 9) {
-                this.selectedCell.style.color = "grey";
                 this.selectedCell.textContent = currentValue;
             }
 
@@ -52,8 +55,11 @@ class Sudoku {
 
     setSelectedCellCorrect() {
         this.selectedCell.setAttribute("data-state", data_state_values.CORRECT);
-        this.selectedCell.style.color = "green";
         this.selectedCell.removeEventListener("click", this.clickHandler);
+    }
+    
+    setSelectedCellInCorrect(){
+        this.selectedCell.setAttribute("data-state",data_state_values.INCORRECT);
     }
 
     checkRows(currentValue) {
@@ -110,14 +116,11 @@ class Sudoku {
         return rows && columns && block;
     }
 
-    setSelectedCellInCorrect() {
-        this.selectedCell.style.color = "red";
-    }
-    
+  
     checkIsCompleted() {
-        for (let indiex = 0; i < this.board.length; i++) {
+        for (let i = 0; i < this.board.length; i++) {
             for (let j = 0; j < this.board.length; j++) {
-                if(board[i][j] == 0) return false;
+                if (this.board[i][j] == 0) return false;
             }
         }
         return true;
@@ -132,11 +135,15 @@ class Sudoku {
     }
 
     removeSelectedCell() {
-        this.selectedCell.setAttribute(
-            "data-state",
-            data_state_values.NOCLICKED
-        );
-
+        if (
+            this.selectedCell.getAttribute("data-state") !=
+            data_state_values.CORRECT
+        ) {
+            this.selectedCell.setAttribute(
+                "data-state",
+                data_state_values.INCORRECT
+            );
+        }
         this.selectedCell = null;
     }
 
@@ -165,28 +172,28 @@ class Sudoku {
     createStructure() {
         const rows = this.board.length;
         const columns = this.board[0].length;
-        const section = document.createElement("section");
+        const main = document.createElement("main");
+
         for (let i = 0; i < rows; i++) {
             for (let j = 0; j < columns; j++) {
                 let p = document.createElement("p");
-                section.appendChild(p);
+                main.appendChild(p);
             }
         }
 
-        let main = document.querySelector("main");
-        main.appendChild(section);
+        document.body.appendChild(main);
     }
 
     paintSudoku() {
         this.start();
         this.createStructure();
-        const section = document.querySelector("section");
-        const pElements = section.querySelectorAll("p");
+        const main = document.querySelector("main");
+        const pElements = main.querySelectorAll("p");
 
         pElements.forEach((p, index) => {
             const listIndex = Math.floor(index / 9);
             const innerListIndex = index % 9;
-            p.setAttribute("pos", index);
+            p.setAttribute("data-pos", index);
             if (this.board[listIndex][innerListIndex] != "0") {
                 p.textContent = this.board[listIndex][innerListIndex];
                 p.setAttribute("data-state", data_state_values.BLOCKED);
@@ -202,7 +209,7 @@ class Sudoku {
         this.selectedCell = p;
         this.selectedCell.setAttribute("data-state", data_state_values.CLICKED);
 
-        let selectedPos = parseInt(this.selectedCell.getAttribute("pos"));
+        let selectedPos = parseInt(this.selectedCell.getAttribute("data-pos"));
         this.selectedPos = selectedPos;
         this.selectedCellRow = Math.floor(selectedPos / this.board.length);
         this.selectedCellColumn = selectedPos % this.board.length;
@@ -217,4 +224,5 @@ const data_state_values = {
     NOCLICKED: "noclicked",
     CLICKED: "clicked",
     CORRECT: "correct",
+    INCORRECT: "incorrect"
 };
