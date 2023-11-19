@@ -22,6 +22,7 @@ class Sudoku {
     selectedCellRow;
     selectedCellColumn;
     clickHandler;
+    selectedPos;
 
     constructor() {
         document.addEventListener("keydown", (event) => this.keyEvent(event));
@@ -55,7 +56,7 @@ class Sudoku {
         this.selectedCell.removeEventListener("click", this.clickHandler);
     }
 
-    isValid(currentValue) {
+    checkRows(currentValue) {
         //Ningun numero igual en la misma fila
         for (let column = 0; column < this.board.length; column++) {
             if (column == this.selectedCellColumn) continue;
@@ -64,6 +65,10 @@ class Sudoku {
                 return false;
             }
         }
+        return true;
+    }
+
+    checkColumns(currentValue) {
         //Misma columna
         for (let row = 0; row < this.board.length; row++) {
             if (row == this.selectedCellRow) continue;
@@ -72,22 +77,50 @@ class Sudoku {
                 return false;
             }
         }
+        return true;
+    }
+
+    checkBlock(currentValue) {
         //Mismo bloque de 9
         const size = 9; // Tamaño del tablero (en este caso, 9x9)
         const groupSize = 3; // Tamaño del grupo (en este caso, 3x3)
-        const filaInicio = Math.floor(indice / size / groupSize) * groupSize;
-        const columnaInicio = Math.floor((indice % size) / groupSize) * groupSize;
+        const startRow =
+            Math.floor(this.selectedPos / size / groupSize) * groupSize;
+        const startColumn =
+            Math.floor((this.selectedPos % size) / groupSize) * groupSize;
 
+        for (let i = startRow; i < startRow + groupSize; i++) {
+            for (let j = startColumn; j < startColumn + groupSize; j++) {
+                if (i == this.selectedCellRow && j == this.selectedCellColumn)
+                    continue;
 
-        //en otro caso, retornar true
+                if (this.board[i][j] == currentValue) {
+                    return false;
+                }
+            }
+        }
+
         return true;
+    }
+
+    isValid(currentValue) {
+        let rows = this.checkRows(currentValue);
+        let columns = this.checkColumns(currentValue);
+        let block = this.checkBlock(currentValue);
+        return rows && columns && block;
     }
 
     setSelectedCellInCorrect() {
         this.selectedCell.style.color = "red";
     }
+    
     checkIsCompleted() {
-        //checkear el array, si esta todo diferente de cero, completado
+        for (let indiex = 0; i < this.board.length; i++) {
+            for (let j = 0; j < this.board.length; j++) {
+                if(board[i][j] == 0) return false;
+            }
+        }
+        return true;
     }
 
     introduceNumber(currentValue) {
@@ -169,10 +202,10 @@ class Sudoku {
         this.selectedCell = p;
         this.selectedCell.setAttribute("data-state", data_state_values.CLICKED);
 
-        let seletedPos = parseInt(this.selectedCell.getAttribute("pos"));
-        this.selected
-        this.selectedCellRow = Math.floor(seletedPos / this.board.length);
-        this.selectedCellColumn = seletedPos % this.board.length;
+        let selectedPos = parseInt(this.selectedCell.getAttribute("pos"));
+        this.selectedPos = selectedPos;
+        this.selectedCellRow = Math.floor(selectedPos / this.board.length);
+        this.selectedCellColumn = selectedPos % this.board.length;
 
         console.log(this.selectedCellRow);
         console.log(this.selectedCellColumn);
