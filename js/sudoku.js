@@ -18,11 +18,93 @@ class Sudoku {
         ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
         ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
     ];
-
-	
+    selectedCell;
+    selectedCellRow;
+    selectedCellColumn;
+    clickHandler;
 
     constructor() {
-        
+        document.addEventListener("keydown", (event) => this.keyEvent(event));
+    }
+
+    keyEvent(event) {
+        if (this.selectedCell != null) {
+            let currentValue = parseInt(event.key);
+
+            if (currentValue >= 1 && event.key <= 9) {
+                this.selectedCell.style.color = "grey";
+                this.selectedCell.textContent = currentValue;
+            }
+
+            this.board[this.selectedCellRow][this.selectedCellColumn] =
+                event.key;
+
+            this.introduceNumber(currentValue)
+                ? this.setSelectedCellCorrect()
+                : this.setSelectedCellInCorrect();
+
+            this.removeSelectedCell();
+        } else {
+            alert("Ha de seleccionar una celda antes de introducir un número.");
+        }
+    }
+
+    setSelectedCellCorrect() {
+        this.selectedCell.setAttribute("data-state", data_state_values.CORRECT);
+        this.selectedCell.style.color = "green";
+        this.selectedCell.removeEventListener("click", this.clickHandler);
+    }
+
+    isValid(currentValue) {
+        //Ningun numero igual en la misma fila
+        for (let column = 0; column < this.board.length; column++) {
+            if (column == this.selectedCellColumn) continue;
+
+            if (this.board[this.selectedCellRow][column] == currentValue) {
+                return false;
+            }
+        }
+        //Misma columna
+        for (let row = 0; row < this.board.length; row++) {
+            if (row == this.selectedCellRow) continue;
+
+            if (this.board[row][this.selectedCellColumn] == currentValue) {
+                return false;
+            }
+        }
+        //Mismo bloque de 9
+        const size = 9; // Tamaño del tablero (en este caso, 9x9)
+        const groupSize = 3; // Tamaño del grupo (en este caso, 3x3)
+        const filaInicio = Math.floor(indice / size / groupSize) * groupSize;
+        const columnaInicio = Math.floor((indice % size) / groupSize) * groupSize;
+
+
+        //en otro caso, retornar true
+        return true;
+    }
+
+    setSelectedCellInCorrect() {
+        this.selectedCell.style.color = "red";
+    }
+    checkIsCompleted() {
+        //checkear el array, si esta todo diferente de cero, completado
+    }
+
+    introduceNumber(currentValue) {
+        if (this.isValid(currentValue)) {
+            this.checkIsCompleted();
+            return true;
+        }
+        return false;
+    }
+
+    removeSelectedCell() {
+        this.selectedCell.setAttribute(
+            "data-state",
+            data_state_values.NOCLICKED
+        );
+
+        this.selectedCell = null;
     }
 
     start() {
@@ -63,32 +145,43 @@ class Sudoku {
     }
 
     paintSudoku() {
-		this.start();
-		this.createStructure();
+        this.start();
+        this.createStructure();
         const section = document.querySelector("section");
         const pElements = section.querySelectorAll("p");
 
         pElements.forEach((p, index) => {
             const listIndex = Math.floor(index / 9);
             const innerListIndex = index % 9;
-			
+            p.setAttribute("pos", index);
             if (this.board[listIndex][innerListIndex] != "0") {
                 p.textContent = this.board[listIndex][innerListIndex];
-				p.setAttribute("data-state",data_state_values.BLOCKED);
-            }else{
-				p.addEventListener("click",this.setClicked.bind(this,p));
-				p.setAttribute("data-state",data_state_values.NOCLICKED);
-			}
+                p.setAttribute("data-state", data_state_values.BLOCKED);
+            } else {
+                this.clickHandler = this.setClicked.bind(this, p);
+                p.addEventListener("click", this.clickHandler);
+                p.setAttribute("data-state", data_state_values.NOCLICKED);
+            }
         });
     }
 
-	setClicked(p){
-		p.setAttribute("data-state",data_state_values.CLICKED);
-	}
+    setClicked(p) {
+        this.selectedCell = p;
+        this.selectedCell.setAttribute("data-state", data_state_values.CLICKED);
+
+        let seletedPos = parseInt(this.selectedCell.getAttribute("pos"));
+        this.selected
+        this.selectedCellRow = Math.floor(seletedPos / this.board.length);
+        this.selectedCellColumn = seletedPos % this.board.length;
+
+        console.log(this.selectedCellRow);
+        console.log(this.selectedCellColumn);
+    }
 }
 
 const data_state_values = {
-	BLOCKED: "blocked",
-	NOCLICKED: "noclicked",
-	CLICKED: "clicked",
-  };
+    BLOCKED: "blocked",
+    NOCLICKED: "noclicked",
+    CLICKED: "clicked",
+    CORRECT: "correct",
+};
