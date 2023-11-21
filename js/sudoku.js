@@ -60,6 +60,7 @@ class Sudoku {
     
     setSelectedCellInCorrect(){
         this.selectedCell.setAttribute("data-state",data_state_values.INCORRECT);
+        alert("El numero introducido es erróneo, puede cambiarlo cuando quiera.");
     }
 
     checkRows(currentValue) {
