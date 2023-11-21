@@ -129,3 +129,90 @@ se puede meter en esa casillas
 
     si no hay seleccionada y no hay clicked meto una alerta
     si la hay llamar introduceNumber()
+
+
+
+    -----------------------
+
+    jquery
+
+    encima de la importacion de script
+    otro scriptq apunte a url jquery min, q elimina espacios y tal
+
+SELECCIONAR ELEMENTOS
+    $("SELECTOR") 0..* elementos, dependiendo de lo especifico que sea el SELECTOR
+    $("SELECTOR).metodoJQuery()
+
+            EJ:
+              .CSS("PROP") valor de la propiedad sobre el objeto q se llamar
+              .css("prop","valor") lo setea
+              .attr("nombre")
+              .attr("nombre","valor")
+
+CREAR ELEMENTOS
+$("etiqueta") 
+            .appendTo("SELECTOR")
+
+
+
+APIS:
+    var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+	$.getJSON(flickrAPI, 
+                    {
+                        tags: "oviedo",
+                        tagmode: "any",
+                        format: "json"
+                    })
+                .done(function(data) {
+                        $("body").css("background-image","url(("img")"))
+								.css("background-size","cover")
+				});
+
+
+
+------------------------------
+1 para cada dia filtrar con el tiempo en una franja diaria ej 12 por cada dia
+recorrerlos buscando dt_txt que coincidan en la hora q quiera
+
+
+alt de la imagen el weather -> main
+
+bloques cuadraditos cada 1 con cada dia q diga el tiempo en cada 1
+
+ponerle el data-nsq a meteo es lo q son de meteorologia
+
+$.ajax(
+dataType: (losmismo q la api --JSON--)
+method: GET,
+url: la base con lo propio del pais mismo,
+success: function(data){
+
+	//recorrer datos crear html con jquery
+	//crearlos y al final hacer el appendTorellenar todo y luego ya lo meto
+
+}
+)
+
+
+------------------------------
+
+
+buscar valores en u xml
+
+crear html 
+
+add html
+
+
+
+PEURMERO COMPROBAR LA HORIZONTAL
+
+	ver donde esta el igual si la der o iz, saco varialbs de 1º operador 2º con estas dos
+		llamar a join de js, que si es 1, * , 5 y devuelve 12*5 le paso eval("12*5") y eso lo comparo
+		con el de la derecha del igual	EL EVAL DA ESCEPCIONES 0/0 solo se llama cuando todas las 
+		casillas d la exprsion esten reLLENAS PUTo
+
+		si esta bien lo introduzcvo si no alerta
+
+		paro de hacer comprobacion si me encuentro un -1

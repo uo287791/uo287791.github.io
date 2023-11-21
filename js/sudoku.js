@@ -194,6 +194,9 @@ class Sudoku {
             const listIndex = Math.floor(index / 9);
             const innerListIndex = index % 9;
             p.setAttribute("data-pos", index);
+            p.setAttribute("data-row",this.sequencePosToArrayPosX(index));
+            p.setAttribute("data-column",this.sequencePosToArrayPosY(index));
+
             if (this.board[listIndex][innerListIndex] != "0") {
                 p.textContent = this.board[listIndex][innerListIndex];
                 p.setAttribute("data-state", data_state_values.BLOCKED);
@@ -211,11 +214,21 @@ class Sudoku {
 
         let selectedPos = parseInt(this.selectedCell.getAttribute("data-pos"));
         this.selectedPos = selectedPos;
-        this.selectedCellRow = Math.floor(selectedPos / this.board.length);
-        this.selectedCellColumn = selectedPos % this.board.length;
+        this.selectedCellRow = this.sequencePosToArrayPosX(selectedPos);
+        this.selectedCellColumn = this.sequencePosToArrayPosY(selectedPos);
 
         console.log(this.selectedCellRow);
         console.log(this.selectedCellColumn);
+    }
+
+
+    sequencePosToArrayPosX(pos){
+        return Math.floor(pos / this.board.length)
+    }
+
+
+    sequencePosToArrayPosY(pos){
+        return pos % this.board.length;
     }
 }
 
