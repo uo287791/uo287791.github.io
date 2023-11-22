@@ -1,24 +1,21 @@
 "use strict";
 class Pais {
-
     key = "c671d920e7a1bac668637655ee975964";
 
-
-    constructor(nombre, capital, poblacion) {
+    constructor(nombre, capital, poblacion, lat, long) {
         this.nombre = nombre;
         this.capital = capital;
         this.poblacion = poblacion;
-      
+        this.lat = lat;
+        this.long = long;
+        this.getMeteo();
     }
 
-
-
-    rellenarAtributosRestantes(formaDeGobierno, religion,lat,long) {
+    rellenarAtributosRestantes(formaDeGobierno, religion) {
         this.formaDeGobierno = formaDeGobierno;
         this.religion = religion;
         this.lat = lat;
         this.long = long;
-        console.log(`api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=${this.key}`)
     }
 
     obtenerNombreComoTexto() {
@@ -28,7 +25,6 @@ class Pais {
     obtenerCapitalComoTexto() {
         return `Capital: ${this.capital}`;
     }
-
 
     obtenerInformacionSecundariaComoHTML() {
         const listaHTML = `<ul>
@@ -40,26 +36,97 @@ class Pais {
         return listaHTML;
     }
 
-
-    obtenerCoordenadasComoHTML(){
+    obtenerCoordenadasComoHTML() {
         document.write(`<p>${this.lat}, ${this.long}</p>`);
     }
 
-    getMeteo(){
-        $.ajax(
-            {
+    getMeteo() {
+        $.ajax({
+            url: `https://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&units=metric&lon=${this.long}&appid=${this.key}`,
+            method: "GET",
+            dataType: "json",
+            success: function (data) {
+                //fecha primer pronostico
+                var ultimaFecha = new Date(0);
+                //parametros a representar
+                var temperaturaMax;
+                var temperaturaMin;
+                var humedad;
+                var icono;
+                var lluvia;
+                $.each(data.list, function (i, val) {
+                    //Fecha pronostico
+                    var fecha = new Date(val.dt_txt.split(" ")[0]);
+                    //si la fecha no coincide, pinto el pronostico de ultimaFecha
+                    if (
+                        ultimaFecha.getDay() != fecha.getDay() &&
+                        ultimaFecha.getFullYear() != "1970" //año de Date(0), usado como fecha inicial
+                    ) {
+                        console.log(temperaturaMax);
+                        console.log(temperaturaMin);
+                        console.log(humedad);
+                        console.log(icono);
+                        console.log(lluvia);
+                        console.log(ultimaFecha);
 
-                url:`https://api.openweathermap.org/data/3.0/onecall?lat=${this.lat}&lon=${this.long}&
-                units=metric&exclude=hourly&appid=${this.key}`,
-                method: "GET",
-                dataType: "json",
-                success: function(data){
+                        var meteoSection = $("section:eq(1)");
+                        var daySection = $("<section>");
+                        
+                        var pFecha = $("<p>", {
+                            text: "Fecha: " + ultimaFecha.getDate() + "/" + eval(ultimaFecha.getMonth()+1) + "/" + ultimaFecha.getFullYear()
+                        });
 
-                },
-                error: function(status){
-                    console.log(status);
-                }
+
+                        var pTempMax = $("<p>", {
+                                        text: "Temperatura máxima: " + temperaturaMax
+                                    });
+                        var pTempMin =  $("<p>", {
+                            text: "Temperatura mínima: " + temperaturaMin
+                        });
+
+                        var pHumedad =  $("<p>", {
+                            text: "Humedad: " + humedad + "%"
+                        });
+                        var pLluvia =  $("<p>", {
+                            text: "Lluvia: " + lluvia + " mm"
+                        });
+
+                        daySection.append(pFecha);
+                        daySection.append(pTempMax);
+                        daySection.append(pTempMin);
+                        daySection.append(pHumedad);
+                        daySection.append(pLluvia);
+
+                        meteoSection.append(daySection);
+                    }
+
+                    //si la fecha coincide, sigo mirando los parametros necesarios para pintarla
+                    if (ultimaFecha.getDay() == fecha.getDay()) {
+                        if (temperaturaMax < val.main.temp_max) {
+                            temperaturaMax = val.main.temp_max;
+                        }
+
+                        if (temperaturaMin > val.main.temp_min) {
+                            temperaturaMin = val.main.temp_min;
+                        }
+                    }
+
+                    //si la fecha no coincide, empiezo de nuevo con los parametros para pintar esta nueva
+                    if (ultimaFecha.getDay() != fecha.getDay()) {
+                        temperaturaMax = val.main.temp_max;
+                        temperaturaMin = val.main.temp_min;
+                        humedad = val.main.humidity;
+                        icono = val.weather["0"].icon;
+                        lluvia = val.rain["3h"];
+                    }
+
+                    ultimaFecha = new Date(val.dt_txt.split(" ")[0]);
+                });
+
+            },
+            error: function (status) {
+                console.log(status);
+            },
         });
     }
-
 }

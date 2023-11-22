@@ -11,11 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="aquí cada documento debe tener la lista
         de las palabras clave del mismo separadas por comas" />
+        <link rel="stylesheet" type="text/css" href="Estilo/pais.css" />
+
     <link rel="stylesheet" type="text/css" href="Estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="Estilo/layout.css" />
 
     <meta charset="UTF-8" />
     <link rel="icon" href="Multimedia/Fotos/favicon-1024.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/pais.js"></script>
 
     <title>Escritorio Virtual - Metereologia</title>
@@ -39,18 +42,31 @@
 
 
     <main>
-        <script>
-            var pais = new Pais("Venezuela", "Caracas", "2.000.000");
-            pais.rellenarAtributosRestantes("Dictadura",  "Cristianismo","10.48801", "-66.87919");
-            document.write("<h2>" + pais.obtenerNombreComoTexto() + "</h2>");
-            document.write("<p>" + pais.obtenerCapitalComoTexto() + "</p>");
-            document.write(pais.obtenerInformacionSecundariaComoHTML());
-            pais.obtenerCoordenadasComoHTML();
-        </script>
+        <!-- DATOS DEL PAIS -->
+        <section>
+        </section>
+
+            <!-- METEOROLOGIA -->
+        <section>
+        </section>
+
+     
     </main>
 
+<!-- 
+    <script>
+        var pais = new Pais("Venezuela", "Caracas", "2.000.000");
+        pais.rellenarAtributosRestantes("Dictadura",  "Cristianismo","10.48", "-66.87");
+        document.write("<h2>" + pais.obtenerNombreComoTexto() + "</h2>");
+        document.write("<p>" + pais.obtenerCapitalComoTexto() + "</p>");
+        document.write(pais.obtenerInformacionSecundariaComoHTML());
+        pais.obtenerCoordenadasComoHTML();
+    </script> -->
 
-
+    <script>
+        pais = new Pais("Venezuela","Caracas","2000000","10.48", "-66.87");
+        
+    </script>
 
 </body>
 

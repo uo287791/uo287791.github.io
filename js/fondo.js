@@ -32,7 +32,6 @@ class Fondo {
             var server = firstPhoto.server;
             var imgUrl = "https://farm" + firstPhoto.farm + ".staticflickr.com/" + server + "/" + id + "_" + secret + "_b.jpg";
     
-            console.log("URL de la imagen:", imgUrl);
             $("body").css({
                 "background-image": "url(" + imgUrl + ")",
                 "background-size": "cover",
