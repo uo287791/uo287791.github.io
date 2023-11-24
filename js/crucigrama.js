@@ -15,7 +15,7 @@ class Crucigrama {
     init_time;
     end_time;
     boardRepresentation = [];
-
+    selectedCell;
     constructor() {
         for (var i = 0; i < this.numFilas; i++) {
             this.boardRepresentation[i] = [];
@@ -28,14 +28,63 @@ class Crucigrama {
         this.printMathWord();
     }
 
-    printMathWord(){
+    printMathWord() {
+        var main = $("<main>");
+        this.init_time = new Date();
+        for (var i = 0; i < this.numFilas; i++) {
+            for (var j = 0; j < this.numCols; j++) {
+                var p;
+                if (this.boardRepresentation[i][j] == "0") {
+                    p = $("<p>", {
+                        text: "",
+                        "data-row": i,
+                        "data-pos": j,
+                        "data-state": "noclicked",
+                    });
+                } else if (this.boardRepresentation[i][j] == "-1") {
+                    p = $("<p>", {
+                        text: "",
+                        "data-row": i,
+                        "data-pos": j,
+                        "data-state": "empty",
+                    });
+                } else {
+                    p = $("<p>", {
+                        text: this.boardRepresentation[i][j],
+                        "data-row": i,
+                        "data-pos": j,
+                        "data-state": "blocked",
+                    });
+                }
+                main.append(p);
+            }
+        }
+        $("body").append(main);
 
+        this.addClickListeners();
 
-        
     }
 
-    start() {
 
+    addClickListeners(){
+
+        var pNoClicked = $("p").filter(function() {
+            return $(this).data("state") == "noclicked";
+        }); 
+        Array.from(pNoClicked).forEach((element) => {
+            element.addEventListener("click", this.setClicked.bind(this, element));
+        });
+    }
+
+
+    setClicked(p) {
+        if(this.selectedCell != null) this.selectedCell.setAttribute("data-state","noclicked")
+        this.selectedCell = p;
+        this.selectedCell.setAttribute("data-state", "clicked");
+    }
+
+
+    start() {
         var characterList = this.board.split(",");
         var charCounter = 0;
         for (var i = 0; i < this.numFilas; i++) {
