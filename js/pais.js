@@ -53,7 +53,7 @@ class Pais {
                 var temperaturaMin;
                 var humedad;
                 var icono;
-                var lluvia;
+                var lluvia = 0;
                 $.each(data.list, function (i, val) {
                     //Fecha pronostico
                     var fecha = new Date(val.dt_txt.split(" ")[0]);
@@ -62,16 +62,14 @@ class Pais {
                         ultimaFecha.getDay() != fecha.getDay() &&
                         ultimaFecha.getFullYear() != "1970" //año de Date(0), usado como fecha inicial
                     ) {
-                        console.log(temperaturaMax);
-                        console.log(temperaturaMin);
-                        console.log(humedad);
-                        console.log(icono);
-                        console.log(lluvia);
-                        console.log(ultimaFecha);
-
                         var meteoSection = $("section:eq(1)");
                         var daySection = $("<section>");
                         
+                        var imagen = $("<img>").attr({
+                            src: "https://openweathermap.org/img/wn/" + icono +"@2x.png",
+                            alt: "Descripción de la imagen" // Puedes agregar más atributos si es necesario
+                        });
+
                         var pFecha = $("<p>", {
                             text: "Fecha: " + ultimaFecha.getDate() + "/" + eval(ultimaFecha.getMonth()+1) + "/" + ultimaFecha.getFullYear()
                         });
@@ -91,6 +89,7 @@ class Pais {
                             text: "Lluvia: " + lluvia + " mm"
                         });
 
+                        daySection.append(imagen);
                         daySection.append(pFecha);
                         daySection.append(pTempMax);
                         daySection.append(pTempMin);
@@ -98,6 +97,7 @@ class Pais {
                         daySection.append(pLluvia);
 
                         meteoSection.append(daySection);
+
                     }
 
                     //si la fecha coincide, sigo mirando los parametros necesarios para pintarla
@@ -109,6 +109,11 @@ class Pais {
                         if (temperaturaMin > val.main.temp_min) {
                             temperaturaMin = val.main.temp_min;
                         }
+
+                        if("rain" in val){
+                            lluvia += val.rain["3h"];
+                        }
+                       
                     }
 
                     //si la fecha no coincide, empiezo de nuevo con los parametros para pintar esta nueva
@@ -117,7 +122,9 @@ class Pais {
                         temperaturaMin = val.main.temp_min;
                         humedad = val.main.humidity;
                         icono = val.weather["0"].icon;
-                        lluvia = val.rain["3h"];
+                        if ("rain" in val){
+                            lluvia = val.rain["3h"];
+                        }
                     }
 
                     ultimaFecha = new Date(val.dt_txt.split(" ")[0]);
@@ -125,7 +132,7 @@ class Pais {
 
             },
             error: function (status) {
-                console.log(status);
+                 
             },
         });
     }
