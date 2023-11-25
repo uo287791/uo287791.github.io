@@ -30,37 +30,45 @@ class Sudoku {
 
     keyEvent(event) {
         if (this.selectedCell != null) {
-            if(this.selectedCell.getAttribute("data-state") == data_state_values.CORRECT){
-                alert("Esta celda ya está correcta!");
-                return;
+            if (event.key >= 1 && event.key <= 9) {
+                if (
+                    this.selectedCell.getAttribute("data-state") ==
+                    data_state_values.CORRECT
+                ) {
+                    alert("Esta celda ya está correcta!");
+                    return;
+                }
+
+                this.selectedCell.textContent = event.key;
+
+                this.board[this.selectedCellRow][this.selectedCellColumn] =
+                    event.key;
+
+                this.introduceNumber(event.key)
+                    ? this.setSelectedCellCorrect()
+                    : this.setSelectedCellInCorrect();
+
+                this.removeSelectedCell();
             }
-            let currentValue = parseInt(event.key);
-
-            if (currentValue >= 1 && event.key <= 9) {
-                this.selectedCell.textContent = currentValue;
-            }
-
-            this.board[this.selectedCellRow][this.selectedCellColumn] =
-                event.key;
-
-            this.introduceNumber(currentValue)
-                ? this.setSelectedCellCorrect()
-                : this.setSelectedCellInCorrect();
-
-            this.removeSelectedCell();
         } else {
             alert("Ha de seleccionar una celda antes de introducir un número.");
         }
     }
 
     setSelectedCellCorrect() {
+        var cell = this.selectedCell;
         this.selectedCell.setAttribute("data-state", data_state_values.CORRECT);
-        this.selectedCell.removeEventListener("click", this.clickHandler);
+        this.selectedCell.removeEventListener("click");
     }
-    
-    setSelectedCellInCorrect(){
-        this.selectedCell.setAttribute("data-state",data_state_values.INCORRECT);
-        alert("El numero introducido es erróneo, puede cambiarlo cuando quiera.");
+
+    setSelectedCellInCorrect() {
+        this.selectedCell.setAttribute(
+            "data-state",
+            data_state_values.INCORRECT
+        );
+        alert(
+            "El numero introducido es erróneo, puede cambiarlo cuando quiera."
+        );
     }
 
     checkRows(currentValue) {
@@ -117,11 +125,12 @@ class Sudoku {
         return rows && columns && block;
     }
 
-  
     checkIsCompleted() {
-        for (let i = 0; i < this.board.length; i++) {
-            for (let j = 0; j < this.board.length; j++) {
-                if (this.board[i][j] == 0) return false;
+
+        let pList = document.querySelectorAll("p");
+        for (let i = 0; i < pList.length; i++) {
+            if(pList[i].getAttribute("data-state") != data_state_values.CORRECT){
+                return false;
             }
         }
         return true;
@@ -195,8 +204,8 @@ class Sudoku {
             const listIndex = Math.floor(index / 9);
             const innerListIndex = index % 9;
             p.setAttribute("data-pos", index);
-            p.setAttribute("data-row",this.sequencePosToArrayPosX(index));
-            p.setAttribute("data-column",this.sequencePosToArrayPosY(index));
+            p.setAttribute("data-row", this.sequencePosToArrayPosX(index));
+            p.setAttribute("data-column", this.sequencePosToArrayPosY(index));
 
             if (this.board[listIndex][innerListIndex] != "0") {
                 p.textContent = this.board[listIndex][innerListIndex];
@@ -211,24 +220,33 @@ class Sudoku {
 
     setClicked(p) {
         this.selectedCell = p;
-        this.selectedCell.setAttribute("data-state", data_state_values.CLICKED);
 
-        let selectedPos = parseInt(this.selectedCell.getAttribute("data-pos"));
-        this.selectedPos = selectedPos;
-        this.selectedCellRow = this.sequencePosToArrayPosX(selectedPos);
-        this.selectedCellColumn = this.sequencePosToArrayPosY(selectedPos);
+        if (
+            this.selectedCell.getAttribute("data-state") !=
+            data_state_values.CORRECT
+        ) {
+            this.selectedCell.setAttribute(
+                "data-state",
+                data_state_values.CLICKED
+            );
 
-        console.log(this.selectedCellRow);
-        console.log(this.selectedCellColumn);
+            let selectedPos = parseInt(
+                this.selectedCell.getAttribute("data-pos")
+            );
+            this.selectedPos = selectedPos;
+            this.selectedCellRow = this.sequencePosToArrayPosX(selectedPos);
+            this.selectedCellColumn = this.sequencePosToArrayPosY(selectedPos);
+
+            console.log(this.selectedCellRow);
+            console.log(this.selectedCellColumn);
+        }
     }
 
-
-    sequencePosToArrayPosX(pos){
-        return Math.floor(pos / this.board.length)
+    sequencePosToArrayPosX(pos) {
+        return Math.floor(pos / this.board.length);
     }
 
-
-    sequencePosToArrayPosY(pos){
+    sequencePosToArrayPosY(pos) {
         return pos % this.board.length;
     }
 }
@@ -238,5 +256,5 @@ const data_state_values = {
     NOCLICKED: "noclicked",
     CLICKED: "clicked",
     CORRECT: "correct",
-    INCORRECT: "incorrect"
+    INCORRECT: "incorrect",
 };

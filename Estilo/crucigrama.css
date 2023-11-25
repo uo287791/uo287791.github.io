@@ -11,6 +11,7 @@ main {
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
     text-align: center;
+    padding-bottom: 2em;
 }
 /*Especificidad 002*/
 main p {
