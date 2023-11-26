@@ -1,0 +1,31 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* o utiliza 'space-between' si prefieres que haya más espacio entre las secciones */
+}
+
+section {
+    border: 0.5em solid #002b53; /* Añade un borde para visualización */
+    padding: 1em; /* Añade un espacio interno */
+    margin: 1em; /* Añade un espacio externo */
+    width: 17em; /* Establece un ancho fijo para cada sección, ajusta según tus necesidades */
+    border-radius: 1em;
+}
+
+/* Puedes personalizar el estilo de los elementos <p> dentro de las secciones según tus necesidades */
+section > p {
+    margin: 1em 0;
+    width: 100%;
+    font-weight: bold;
+}
+
+main {
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+button {
+    font-size: 1.5em;
+    border-radius: 0.5em;
+    margin-left: 2em;
+}

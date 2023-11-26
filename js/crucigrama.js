@@ -113,12 +113,12 @@ class Crucigrama {
 
         if (this.checkWinCondition()) {
             this.end_time = new Date();
-            var tiempo = this.calculate_date_difference();
+            var tiempo = this.diferenciaFecha();
             alert(`Tiempo: ${tiempo.horas}:${tiempo.minutos}:${tiempo.segundos}`);
         }
     }
 
-    calculate_date_difference() {
+    diferenciaFecha() {
         const diferencia = this.end_time - this.init_time;
 
         // Calcular las horas, minutos y segundos
