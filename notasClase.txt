@@ -216,3 +216,8 @@ PEURMERO COMPROBAR LA HORIZONTAL
 		si esta bien lo introduzcvo si no alerta
 
 		paro de hacer comprobacion si me encuentro un -1
+
+
+    dar altura mapa
+
+    att multiple para input file

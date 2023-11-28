@@ -1,20 +1,19 @@
 section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* o utiliza 'space-between' si prefieres que haya más espacio entre las secciones */
+    justify-content: space-around; 
   }
   
   section>section {
-    border: 0.5em solid #002b53;/* Añade un borde para visualización */
-    padding: 1em; /* Añade un espacio interno */
-    margin: 1em; /* Añade un espacio externo */
-    width: 17em; /* Establece un ancho fijo para cada sección, ajusta según tus necesidades */
-    box-sizing: border-box; /* Ajusta el modelo de caja para incluir el borde y el relleno en el ancho total */
+    border: 0.5em solid #002b53;
+    padding: 1em; 
+    margin: 1em; 
+    width: 17em; 
+    box-sizing: border-box; 
     border-radius: 2em;
 
   }
   
-  /* Puedes personalizar el estilo de los elementos <p> dentro de las secciones según tus necesidades */
   section > section p {
     margin: 1em 0;
     font-weight: bold;
