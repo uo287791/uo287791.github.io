@@ -12,16 +12,18 @@
         de las palabras clave del mismo separadas por comas" />
         <link rel="stylesheet" type="text/css" href="Estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="Estilo/layout.css" />
-
+        <link rel="stylesheet" type="text/css" href="Estilo/noticias.css" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="js/noticias.js"></script>
         <meta charset="UTF-8" />
         <link rel="icon" href="Multimedia/Fotos/favicon-1024.png">
 
-        <title>Escritorio Virtual - Noticias</title>
+        <title>Escritorio Virtual - Agenda</title>
     </head>
 
-    <body>
+    
         <!-- Datos con el contenidos que aparece en el navegador -->
-       
+   
         <header>
             <h1>Escritorio Virtual</h1>
             <nav>
@@ -36,8 +38,23 @@
         </header>
 
 
+        <h2>Introducir nueva noticia</h2>
+        <p>Titular: <input type="text"></p>
+        
+    
+        <p>Entradilla: <input type="text"></p>    
+        <p>Texto: <textarea></textarea></p>
+    
+        <p>Autor: <input type="text"></p>
+    
+        <button onclick="noticias.añadirNoticia()">Agregar Noticia</button>
+        
+        <script>
+            noticias = new Noticias();
+        </script>
 
-        <p>En desarrollo</p>
+        <p><input type="file" onchange="noticias.readInputFile();"></p>
+        
         
         
     </body>

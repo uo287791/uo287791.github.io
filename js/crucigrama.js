@@ -76,8 +76,8 @@ class Crucigrama {
             if (
                 event.key <= 9 ||
                 event.key >= 1 ||
-                operadoresMatematicos.includes(event.key)
-            ) {
+               operadoresMatematicos.includes(event.key)
+            ) { 
                 this.selectedCell.textContent = event.key;
                 this.boardRepresentation[
                     this.selectedCell.getAttribute("data-row")
