@@ -19,12 +19,16 @@
         <link rel="stylesheet" type="text/css" href="Estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="Estilo/layout.css" />
         <link rel="stylesheet" type="text/css" href="Estilo/viajes.css" />
-
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+            rel="stylesheet"
+        />
         <script
             src="https://code.jquery.com/jquery-3.7.1.min.js"
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
             crossorigin="anonymous"
         ></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
         <script src="js/viajes.js"></script>
         <meta charset="UTF-8" />
         <link rel="icon" href="Multimedia/Fotos/favicon-1024.png" />
@@ -51,10 +55,23 @@
         </header>
 
         <main>
+            <section>
+                <h2>Posición actual (Mapa estático):</h2>
+            </section>
 
             <section>
-            <h2>Posición actual:</h2>
+                <h2>Posición actual (Mapa dinámico):</h2>
+                <section data-element="map" id="section"></section>
             </section>
+
+            <section>
+                <h2>Rutas:</h2>
+                <p>Añade tus rutas: <input type="file" onchange="viajes.readInputFile();"></p>
+            </section>
+
+
+
+
         </main>
         <script>
             viajes = new Viajes();

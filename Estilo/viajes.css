@@ -1,3 +1,14 @@
 img{
     margin-left: 1em;
 }
+
+section{
+    max-width: 50%;
+    max-width: 90%;
+    margin-left: 1em;
+}
+
+section[data-element="map"]{
+    min-height: 29em;
+
+}
