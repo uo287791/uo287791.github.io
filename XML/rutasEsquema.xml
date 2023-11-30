@@ -74,7 +74,7 @@
             </distancia-previo>
 
             <foto-hito>
-                Altamira.jpg
+               ../Multimedia/Fotos/Altamira.jpg
             </foto-hito>
         </hito>
 
@@ -96,7 +96,7 @@
                </distancia> 
             </distancia-previo>
             <foto-hito>
-                avila.jpeg
+                ../Multimedia/Fotos/avila.jpeg
             </foto-hito>
         </hito>
 
@@ -120,7 +120,7 @@
             </distancia-previo>
 
             <foto-hito>
-                casa.jpeg
+                ../Multimedia/Fotos/casa.jpeg
             </foto-hito>
        
        
@@ -144,7 +144,7 @@
             </distancia-previo>
 
             <foto-hito>
-                Mifoto.jpg
+                ../Multimedia/Fotos/casa.jpeg
             </foto-hito>
         </hito>
 
@@ -223,7 +223,7 @@
              </distancia-previo>
 
             <foto-hito>
-                anauco.jpg
+                ../Multimedia/Fotos/anauco.jpg
             </foto-hito>
         </hito>
 
@@ -247,7 +247,7 @@
              </distancia-previo>
 
             <foto-hito>
-                panteon.jpg
+                ../Multimedia/Fotos/panteon.jpg
             </foto-hito>
         </hito>
 
@@ -272,7 +272,7 @@
              </distancia-previo>
 
             <foto-hito>
-                iglesia.jpg
+                ../Multimedia/Fotos/iglesia.jpg
             </foto-hito>
         </hito>
 
@@ -351,7 +351,7 @@
              </distancia-previo>
 
             <foto-hito>
-                este.jpg
+                ../Multimedia/Fotos/este.jpg
             </foto-hito>
         </hito>
 
@@ -375,12 +375,12 @@
              </distancia-previo>
 
             <foto-hito>
-                exopanzoo.jpg
+                ../Multimedia/Fotos/exopanzoo.jpeg
             </foto-hito>
         </hito>
 
 
-        <hito nombre="ParqueLosChorros">
+        <hito nombre="Parque `Los Chorros`">
             <descripcion-hito>
                 Muy bonito
             </descripcion-hito>
@@ -400,7 +400,7 @@
              </distancia-previo>
 
             <foto-hito>
-                chorros.jpg
+                ../Multimedia/Fotos/casa.jpeg
             </foto-hito>
         </hito>
 

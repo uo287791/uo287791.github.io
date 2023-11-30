@@ -61,17 +61,43 @@
 
             <section>
                 <h2>Posición actual (Mapa dinámico):</h2>
-                <section data-element="map" id="section"></section>
+                <section data-element="map" id="positionMap"></section>
             </section>
 
             <section>
                 <h2>Rutas:</h2>
-                <p>Añade tus rutas: <input type="file" onchange="viajes.readInputFile();"></p>
+                <p>
+                    Añade tus rutas:
+                    <input type="file" onchange="viajes.readInputFile();" />
+                </p>
             </section>
 
+            <section>
+                <h2>Planimetrías</h2>
 
+                <p>
+                    Añade tus planimetrias:
+                    <input
+                        type="file"
+                        onchange="viajes.pintarPlanimetriaMapa();"
+                        multiple
+                    />
+                </p>
+                <section data-element="map" id="planimetriaMap"></section>
+            </section>
 
-
+            <section>
+                <h2>Altimetrías</h2>
+                <p>
+                    Añade tus altimetrías:
+                    <input
+                        type="file"
+                        onchange="viajes.pintarAltimetrias();"
+                        multiple
+                    />
+                </p>
+           
+            </section>
         </main>
         <script>
             viajes = new Viajes();

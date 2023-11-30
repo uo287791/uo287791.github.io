@@ -1,5 +1,6 @@
 "use strict";
 class Viajes {
+
     constructor() {
         navigator.geolocation.getCurrentPosition(
             this.getPosicion.bind(this),
@@ -37,6 +38,7 @@ class Viajes {
     getLongitud() {
         return this.longitud;
     }
+
     getLatitud() {
         return this.latitud;
     }
@@ -56,7 +58,7 @@ class Viajes {
             "pk.eyJ1IjoidW8yODc3OTEiLCJhIjoiY2xwaXNhbG41MDJlcjJpbzdsZm8wbmxmeSJ9.LoxN1FTXvjz2AqkFctRVew";
 
         const map = new mapboxgl.Map({
-            container: "section",
+            container: "positionMap",
             style: "mapbox://styles/mapbox/streets-v12",
             center: [this.longitud, this.latitud], // starting position [lng, lat]
             zoom: 15, // starting zoom
@@ -141,11 +143,10 @@ class Viajes {
                         text: "Longitud: " + longitudInicio,
                     });
                     var pAltitudInicio = $("<p>", {
-                        text: "Altitud: " + altitudInicio,
+                        text: "Altitud: " + altitudInicio + " m",
                     });
 
                     var headerHitos = $("<h4>", { text: "Hitos" });
-
 
                     seccionRuta.append(
                         pNombre,
@@ -187,6 +188,8 @@ class Viajes {
                                 .find("altitud")
                                 .text();
 
+                            var fotoHito = $(this).find("foto-hito").text();
+
                             var headerHito = $("<h5>", {
                                 text: nombreHito,
                             });
@@ -195,17 +198,26 @@ class Viajes {
                             });
 
                             var headerCoordenadasHito = $("<h6>", {
-                                text: "Coordenadas"
+                                text: "Coordenadas",
                             });
 
                             var pLongitudHito = $("<p>", {
-                                text: "Longitud: " + longitudInicio,
+                                text: "Longitud: " + longitudHito,
                             });
                             var pLatitudHito = $("<p>", {
-                                text: "Latitud: " + longitudInicio,
+                                text: "Latitud: " + latitudHito,
                             });
                             var pAltitudHito = $("<p>", {
-                                text: "Altitud: " + longitudInicio,
+                                text: "Altitud: " + altitudHito + " m",
+                            });
+
+                            var headerFotoHito = $("<h6>", {
+                                text: "Fotografía",
+                            });
+
+                            var imgHito = $("<img>", {
+                                src: fotoHito,
+                                alt: "Foto del hito",
                             });
 
                             seccionRuta.append(
@@ -214,12 +226,119 @@ class Viajes {
                                 headerCoordenadasHito,
                                 pLongitudHito,
                                 pLatitudHito,
-                                pAltitudHito);
+                                pAltitudHito,
+                                headerFotoHito,
+                                imgHito
+                            );
                         });
 
                     seccionRutas.append(seccionRuta);
                 });
         };
         lector.readAsText(archivo);
+    }
+
+    procesarKML(archivo,coordenadasArray){
+        //AQUI GENERO UN ARRAY LLENO DE ARRAYS DE DOS POSICIONES 
+        var lector = new FileReader();
+
+        lector.onload = function (e) {
+            var contenido = e.target.result;
+            var coordenadasObtenidas = $(contenido).find("coordinates").text();
+            coordenadasObtenidas = coordenadasObtenidas.trim().split("\n")
+            var coordenadas = [];
+            coordenadasObtenidas.forEach(element => {
+                coordenadas.push(element.trim().split(","));
+            });
+            coordenadasArray.push(coordenadas);
+        };
+        lector.readAsText(archivo);
+    }
+
+    pintarPlanimetriaMapa() {
+        
+        var archivos = $("input")[1].files;
+        var coordenadas = []
+
+        //SE RELLENA EL ARRAY DE COORDENADAS
+        for (let archivo = 0; archivo < archivos.length; archivo++) {
+            this.procesarKML(archivos[archivo],coordenadas);            
+        }
+
+        console.log(coordenadas)
+            
+        this.initMap()
+            .then((mapPlanimetria) => {
+
+                //capa de línea después de que el mapa esté cargado
+                
+                for (let coord = 0; coord < coordenadas.length; coord++) {
+                    var coordenadasArchivo = coordenadas[coord];
+                    mapPlanimetria.addLayer({
+                        id: `ruta${coord}`,
+                        type: "line",
+                        source: {
+                            type: "geojson",
+                            data: {
+                                type: "Feature",
+                                properties: {},
+                                geometry: {
+                                    type: "LineString",
+                                    coordinates: coordenadasArchivo,
+                                },
+                            },
+                        },
+                        layout: {
+                            "line-join": "round",
+                            "line-cap": "round",
+                        },
+                        paint: {
+                            "line-color": "#ff0000",
+                            "line-width": 5,
+                        },
+                    });
+                }
+                
+               
+            })
+            .catch((error) => {
+                console.error("Error al inicializar el mapa:", error);
+            });
+    }
+
+    initMap() {
+
+        return new Promise((resolve, reject) => {
+            const mapPlanimetria = new mapboxgl.Map({
+                container: "planimetriaMap",
+                style: "mapbox://styles/mapbox/streets-v12",
+                center: [this.longitud, this.latitud],
+                zoom: 15,
+            });
+            mapPlanimetria.on('load', () => {
+                resolve(mapPlanimetria);
+            });    
+            mapPlanimetria.on('error', (error) => {
+                reject(error); 
+            });
+        });
+    }
+
+    pintarAltimetrias(){
+        var archivos = $("input")[2].files;
+
+
+        for (let i = 0; i < archivos.length; i++) {
+            var archivo = archivos[i];
+            var lector = new FileReader();
+
+            lector.onload = function (e) {
+                var contenido = e.target.result;
+                $("section").last().append(contenido);
+           
+            };
+            lector.readAsText(archivo);
+        }
+  
     }
 }

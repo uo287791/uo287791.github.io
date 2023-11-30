@@ -10,9 +10,21 @@ section{
 
 section[data-element="map"]{
     min-height: 29em;
-
 }
 
 h3{
     font-weight: 600;
+}
+
+img{
+    max-width: 35%
+}
+
+canvas{
+    border-radius: 3em;
+}
+
+
+svg{
+    min-zoom: 10em;
 }
