@@ -48,6 +48,14 @@ class ComoLlegar {
             self.coordenadas.push(coordenadasObtenidas.trim().split(","));
         };
         lector.readAsText(archivo);
+
+        var boton = $("main button");
+        var imgFlecha = $("<img>",{
+            src: "./Multimedia/Fotos/flechaRoja.png",
+            alt:"Flecha roja"
+        })
+
+        boton.after(imgFlecha)
     }
 
     showDirecciones() {
@@ -83,7 +91,7 @@ class ComoLlegar {
             .addTo(map);
         ///////////////////////////////////////////////////////
 
-        var seccionDirecciones = $("section:eq(1)");
+        var listaInstrucciones = $("ol");
 
         $.ajax({
             //inicio     inicio     fin          fin
@@ -109,10 +117,10 @@ class ComoLlegar {
                         var textoInstruccion = currentStep.maneuver.instruction;
 
                         //Adición parrafo instruccion a HTML
-                        var pInst = $("<p>", {
+                        var pInst = $("<li>", {
                             text: textoInstruccion,
                         });
-                        seccionDirecciones.append(pInst);
+                        listaInstrucciones.append(pInst);
 
                         /////AUDIO INSTRUCCION/////
                         var mensaje = new SpeechSynthesisUtterance(
