@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <!-- Datos que describen el documento -->
+        <meta name ="author" content ="Daniel Andina Pailos" />
+
+        <meta name ="description" content ="aquí cada documento debe tener la
+        descripción del contenido concreto del mismo" />
+
+
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+
+
+
+        <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+        <meta name ="keywords" content ="aquí cada documento debe tener la lista
+        de las palabras clave del mismo separadas por comas" />
+        <link rel="stylesheet" type="text/css" href="Estilo/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="Estilo/layout.css" />
+        <link rel="stylesheet" type="text/css" href="Estilo/api.css" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="js/api.js"></script>
+        <meta charset="UTF-8" />
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+        <link rel="icon" href="Multimedia/Fotos/favicon-1024.png">
+
+        <link
+        href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+        rel="stylesheet"
+     />
+
+        <title>Escritorio Virtual - Cómo llegar</title>
+    </head>
+
+    
+        <!-- Datos con el contenidos que aparece en el navegador -->
+   
+        <header>
+            <h1>Escritorio Virtual</h1>
+            <nav>
+                <a href="index.html" accesskey="i" tabindex="1">Inicio</a>
+                <a href="sobremi.html" accesskey="s" tabindex="2">Sobre mí</a>
+                <a href="noticias.html" accesskey="n" tabindex="3">Noticias</a>
+                <a href="agenda.html" accesskey="a" tabindex="4">Agenda</a>
+                <a href="meteorologia.html" accesskey="m" tabindex="5">Meteorología</a>
+                <a href="viajes.html" accesskey="v" tabindex="6">Viajes</a>
+                <a href="juegos.html" accesskey="j" tabindex="7">Juegos</a>
+            </nav>
+        </header>
+
+
+       
+        <nav>
+            <a href="memoria.html" accesskey="i" tabindex="8">Juego de memoria</a>
+            <a href="sudoku.html" accesskey="s" tabindex="9">Sudoku</a> 
+            <a href="crucigrama.html" accesskey="c" tabindex="10">Crucigrama</a> 
+            <a href="api.html" accesskey="p" tabindex="11">¿Cómo llegar a...?</a> 
+
+
+        </nav>
+
+        <main>
+            <h2>¿Cómo llegar a...?</h2>
+            
+         
+            <!------------------------------BOTON KML---------------------------------------------------------->
+            <p>
+                ¿Cual es tu destino? (.KML):
+                    <input
+                        type="file"
+                        onchange="comollegar.procesarKML();"
+                    />
+            </p>
+            <!---------------------------------BOTON INICIAR RUTA------------------------------------------------------->
+
+            <button onclick="comollegar.showDirecciones()">Obtener Direcciones</button>
+            <!-----------------------------------MAPA RUTA----------------------------------------------------->
+            <section id="comollegar" data-element="map">
+
+
+            </section>
+            <!-----------------------------------DIRECCIONES TEXTUALES----------------------------------------------------->
+
+            <section></section>
+
+
+
+        </main>
+        
+        <script>comollegar = new ComoLlegar();</script>
+        
+    </body>
+</html>

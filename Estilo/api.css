@@ -1,0 +1,11 @@
+select, button{
+    margin: 1em;
+}
+
+section[data-element="map"]{
+    min-height: 34em;
+    border-radius:1em;
+    max-width: 50%;
+    margin-left: 1em;
+}
+
