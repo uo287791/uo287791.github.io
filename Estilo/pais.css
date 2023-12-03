@@ -1,5 +1,6 @@
 section {
     display: flex;
+    text-align: center;
     flex-wrap: wrap;
     justify-content: space-around; 
   }
@@ -15,6 +16,11 @@ section {
   }
   
   section > section p {
-    margin: 1em 0;
     font-weight: bold;
+
+  }
+
+  h2,h3,h4{
+    min-width: 100%;
+    
   }

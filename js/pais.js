@@ -8,14 +8,21 @@ class Pais {
         this.poblacion = poblacion;
         this.lat = lat;
         this.long = long;
+        this.rellenarAtributosRestantes("Dictadura",  "Cristianismo");
+        var seccionPais = $("section:eq(0)");
+        var nombre = this.obtenerNombreComoTexto();
+        var capital = this.obtenerCapitalComoTexto();
+        console.log(nombre,capital)
+        
+        var h2Pais =$("<h2>",{text: nombre});
+        seccionPais.append(h2Pais,this.obtenerInformacionComoHTML());   
         this.getMeteo();
     }
 
     rellenarAtributosRestantes(formaDeGobierno, religion) {
         this.formaDeGobierno = formaDeGobierno;
         this.religion = religion;
-        this.lat = lat;
-        this.long = long;
+
     }
 
     obtenerNombreComoTexto() {
@@ -26,8 +33,9 @@ class Pais {
         return `Capital: ${this.capital}`;
     }
 
-    obtenerInformacionSecundariaComoHTML() {
+    obtenerInformacionComoHTML() {
         const listaHTML = `<ul>
+                            <li>Capital: ${this.capital}</li>
                             <li>Población: ${this.poblacion}</li>
                             <li>Forma de Gobierno: ${this.formaDeGobierno}</li>
                             <li>Religión Mayoritaria: ${this.religion}</li>
@@ -70,8 +78,8 @@ class Pais {
                             alt: "Descripción de la imagen" // Puedes agregar más atributos si es necesario
                         });
 
-                        var pFecha = $("<p>", {
-                            text: "Fecha: " + ultimaFecha.getDate() + "/" + eval(ultimaFecha.getMonth()+1) + "/" + ultimaFecha.getFullYear()
+                        var pFecha = $("<h4>", {
+                            text: ultimaFecha.getDate() + "/" + eval(ultimaFecha.getMonth()+1) + "/" + ultimaFecha.getFullYear()
                         });
 
 

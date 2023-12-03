@@ -1,10 +1,11 @@
 img{
     margin-left: 1em;
+    max-width: 35%
+
 }
 
 section{
     max-width: 50%;
-    max-width: 90%;
     margin-left: 1em;
 }
 
@@ -16,15 +17,7 @@ h3{
     font-weight: 600;
 }
 
-img{
-    max-width: 35%
-}
-
 canvas{
     border-radius: 3em;
 }
 
-
-svg{
-    min-zoom: 10em;
-}

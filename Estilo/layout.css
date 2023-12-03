@@ -1,6 +1,9 @@
+
+/*WARNING DE REDIFINICION GAP, se redefine dependiendo del tamaño disponible*/
+
 /* Especificidad 001 */
 nav {
-
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,7 +17,11 @@ body>nav{
     padding-top: 3em;
 }
 
-/* PX CUIDADINO */
+
+
+
+
+/*WARNING DE REDIFINICION GAP, se redefine dependiendo del tamaño disponible*/
 /* Gap pequeño para moviles */
 /*Especificidad  (0, 0, 1)*/
 @media only screen and (max-width: 400px) {

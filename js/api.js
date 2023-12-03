@@ -64,6 +64,7 @@ class ComoLlegar {
             return;
         }
 
+
         ////////SINTENTIZADOR DE VOZ/////
         var synth = window.speechSynthesis;
 
@@ -90,9 +91,8 @@ class ComoLlegar {
             ])
             .addTo(map);
         ///////////////////////////////////////////////////////
-
+         $("section:eq(1)").prepend("<h3>Direcciones:</h3>")
         var listaInstrucciones = $("ol");
-
         $.ajax({
             //inicio     inicio     fin          fin
             url: `https://api.mapbox.com/directions/v5/mapbox/walking/${

@@ -20,7 +20,7 @@ class Noticias {
 
         lector.onload = function (e) {
             var contenido = e.target.result;
-            var main = $("<main>");
+            var main = $("main");
 
             var noticias = contenido.split("\n");
             
@@ -43,7 +43,6 @@ class Noticias {
             });
 
 
-            $("body").append(main);
         };
         lector.readAsText(archivo);
     }

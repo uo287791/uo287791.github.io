@@ -48,9 +48,9 @@ class Viajes {
 
         var staticMap = $("<img>", {
             src: url,
+            alt: "Imagen de un mapa con tu posicion"
         });
         $("main section:eq(0)").append(staticMap);
-        console.log(url);
     }
 
     showDynamicMap() {
@@ -265,7 +265,6 @@ class Viajes {
             this.procesarKML(archivos[archivo],coordenadas);            
         }
 
-        console.log(coordenadas)
             
         this.initMap()
             .then((mapPlanimetria) => {

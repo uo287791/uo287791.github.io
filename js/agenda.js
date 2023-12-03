@@ -1,7 +1,7 @@
 "use strict";
 class Agenda {
     constructor() {
-        this.url = "http://ergast.com/api/f1/current";
+        this.url = "https://ergast.com/api/f1/current";
         this.last_api_call = null;
         this.last_api_result = null;
         this.createButton();
@@ -62,8 +62,8 @@ class Agenda {
                             // Create a new section element
                             var section = $("<section>");
 
-                            var pRaceName = $("<p>",{
-                                text: `Nombre: ${raceName}`
+                            var pRaceName = $("<h2>",{
+                                text: `${raceName}`
                             });
                             var pCircuitName = $("<p>",{
                                 text: `Circuito: ${circuitName}`

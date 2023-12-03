@@ -30,18 +30,18 @@ main p {
 }
 
 /*Especificidad 011*/
-/*Warning no hay color de background,
-realmente se hereda de body en estilo.css*/
+
 p[data-state="correct"]{
-    color: #03491C;
+    background-color: rgb(20, 120, 0);
+    color: #ffffff;
     font-weight: bold;
 }
 
 /*Especificidad 011*/
-/*Warning no hay color de background,
-realmente se hereda de body en estilo.css*/
+
 p[data-state="incorrect"]{
-    color: #7C0303;
+    background-color: #7C0303;
+    color: #ffffff;
     font-weight: bold;
 }
 

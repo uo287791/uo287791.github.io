@@ -3,6 +3,7 @@
     <head>
         <!-- Datos que describen el documento -->
         <meta name ="author" content ="Daniel Andina Pailos" />
+        <meta charset="UTF-8" />
 
         <meta name ="description" content ="aquí cada documento debe tener la
         descripción del contenido concreto del mismo" />
@@ -21,7 +22,6 @@
         <link rel="stylesheet" type="text/css" href="Estilo/api.css" />
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="js/api.js"></script>
-        <meta charset="UTF-8" />
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
         <link rel="icon" href="Multimedia/Fotos/favicon-1024.png">
@@ -35,7 +35,6 @@
     </head>
 
     
-        <!-- Datos con el contenidos que aparece en el navegador -->
    
         <header>
             <h1>Escritorio Virtual</h1>
@@ -65,7 +64,6 @@
             <h2>¿Cómo llegar a...?</h2>
             
          
-            <!------------------------------BOTON KML---------------------------------------------------------->
             <p>
                 ¿Cual es tu destino? (.KML):
                     <input
@@ -73,16 +71,13 @@
                         onchange="comollegar.procesarKML();"
                     />
             </p>
-            <!---------------------------------BOTON INICIAR RUTA------------------------------------------------------->
 
             <button onclick="comollegar.showDirecciones()">Obtener Direcciones</button>
-            <!-----------------------------------MAPA RUTA----------------------------------------------------->
             <section id="comollegar" data-element="map">
 
 
             </section>
-            <!-----------------------------------DIRECCIONES TEXTUALES----------------------------------------------------->
-
+                
             <section>
                 <ol>
 
